@@ -1,0 +1,166 @@
+.accordion{
+    &-item{
+        transition: all .4s;
+        padding-bottom: 8px;
+        &:not(:last-child){
+            border-bottom: 1px solid $bdr_light;
+            .tc-light & {
+                border-color: rgba(#fff,.05);
+            }
+            .bg-theme & {
+                border-color: $bdr_dark_alt;
+            }
+        }
+        &-s2{
+            border-width:2px !important;
+            border:2px solid $bdr_light;
+            border-radius: $radius;
+            &.current{
+                border-color:rgba($theme_primary,.5);
+            }
+            &:not(:last-child){
+                margin-bottom: 15px;
+            }
+        }
+        &-s3{
+            border:none !important;
+            border-radius: $radius;
+            background: #fff;
+            box-shadow: 0px 4px 6px 0px rgba($theme_primary,.07);
+            &:not(:last-child){
+                margin-bottom: 30px;
+            }
+        }
+        &-s4{
+            background: rgba($theme_primary,.09);
+            &.current{
+                background: rgba($theme_primary,.05);
+            }
+        }
+    }
+    &-title{
+        position: relative;
+        color: $theme_primary_alt;
+        font-weight: 400;
+        cursor: pointer;
+        padding:22px 46px 14px 0;
+        margin-bottom: 0;
+        .accordion-item-s2 &,.accordion-item-s3 &{
+            padding: 25px 46px 17px 30px;
+        }
+        .accordion-item-s4 &{
+            padding: 16px 46px 8px 30px;
+        }
+        .tc-light & {
+            color: $theme_accent;
+        }
+        &-sm{
+            font-size: 16px;
+        }
+        &.collapsed{
+            color: $default_color;
+            .tc-light & {
+                color: #fff;
+            }
+            .accordion{
+                &-icon{
+                    &:before{
+                        opacity: 0;
+                    }
+                    &:after{
+                        opacity: 1;
+                    }
+                    &-s2{
+                        &:after{
+                            transform: rotate(-180deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-icon{
+        position: absolute;
+        top: 16px;
+        right: 0;
+        height: 36px;
+        width: 36px;
+        border-radius: 50%;
+        background-color: $theme_light;
+        &:before,&:after{
+            @extend .nk-df-around;
+            line-height: 36px;
+            color: $theme_primary_alt;
+            font-family: $font_awesome;
+            font-weight: 700;
+            font-size: 16px;
+            text-align: center;
+            transition: all .4s;
+        }
+        &:before{
+            content: '\f068';
+            opacity: 1;
+        }
+        &:after{
+            content: '\f067';
+            opacity:0;
+        }
+        &-s2{
+            background-color: transparent;
+            &:after{
+                font-family: $themify;
+                content: '\e648';
+                opacity: 1 !important;
+            }
+            &:before{
+                display: none;
+            }
+        }
+        .accordion-item-s2 &{
+            right: 12px;
+            top: 18px;
+        }
+        .accordion-item-s3 &{
+            top: 18px;
+            right: 18px;
+        }
+        .accordion-item-s4 &{
+            top: 10px;
+            right: 12px;
+        }
+        .tc-light & {
+            background: rgba($theme_accent,0.1);
+            &:after,&:before{
+                color: $theme_accent;
+            }
+        }
+    }
+    &-content{
+        padding-bottom: 12px;
+        padding-right: 46px;
+        p:last-child{
+            margin-bottom: 0;
+        }
+        .accordion-item-s2 &,
+        .accordion-item-s3 &,
+        .accordion-item-s4 &{
+            padding-left: 30px;
+        }
+        .accordion-item-s4 &{
+            padding-bottom: 6px;
+        }
+    }
+    &-faq{
+        margin-top: -15px;
+    }
+}
+
+@media (min-width:576px){
+    .accordion{
+        &-title{
+            &-sm{
+                font-size: 18px;
+            }
+        }
+    }
+}

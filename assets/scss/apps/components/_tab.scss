@@ -1,0 +1,203 @@
+.tab{
+    &-nav{
+        li{
+            a{
+                display: block;
+                padding: 12px 12px;
+                line-height: 19px;
+                font-weight: 400;
+                color: $text_light;
+                transition: all 0s;
+                &:hover,&.active{
+                    color: $theme_primary_alt ;
+                }
+                .fas,.far{
+                    margin-right: 10px;
+                }
+            }
+        }
+        &-sap{
+            flex-grow: 1;
+            height: 2px;
+            background: $base_light;
+            align-self: center;
+        } // @v151
+        // For Verticl tab navigation
+        &-vr{
+            display: block;
+            li{
+                a{
+                    padding: 22px 15px;
+                }
+            }
+            .tc-light &{
+                li{
+                    &:not(:last-child){
+                        a{
+                            border-color: rgba(#fff,.07);
+                        }
+                    }
+                }
+            }
+        }
+        // For tab navigation S2
+        &-s2{
+            margin: 0 -15px 15px;
+            li{
+                padding: 0 15px;
+                a{
+                    text-transform: uppercase;
+                    padding: 12px 5px;
+                    border-bottom-color: transparent;
+                    &:hover,&.active{
+                        color: $theme_accent;
+                        border-bottom-color: $theme_accent;
+                    }
+                    .fas,.far{
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+        // For tab navigation S3
+        &-s3{
+            li{
+                a{
+                    border: none !important;
+                    border-radius: $radius / 2;
+                    cursor: pointer;
+                    padding: 28px 30px;
+                    [class*=title]{
+                        color: $text_dark;
+                        transition: all .4s;
+                    }
+                    p{
+                        color: $base_color;
+                        line-height: 1.6;
+                    }
+                    &.active{
+                        box-shadow: $shadow;
+                        background: #fff;
+                        cursor: default;
+                        [class*=title]{
+                            color: $theme_accent;
+                        }
+                    }
+                }
+            }
+        }
+        // For Centered navigation
+        &-center{
+            justify-content: center;
+        }
+        // For Bordered tab navigation
+        &-bdr{
+            border: 1px solid $bdr_light;
+            border-radius: 5px;
+            .tc-light &{
+                border-color: rgba(#fff,.07);
+            }
+            .bg-theme &{
+                border-color: $bdr_dark_alt;
+                background: $theme_dark_alt !important;
+            }
+            .tc-light &{
+                background: rgba(#fff,.02);
+            }
+        }
+        // For lined tab navigation
+        &-line{
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba($bdr_light,.5);
+            text-align: center;
+            li{
+                a{
+                    border-bottom: none;
+                    position: relative;
+                    &:after{
+                        position: absolute;
+                        width: 100%;
+                        height: 2px;
+                        left: 0;
+                        bottom: -2px;
+                        content: '';
+                        background: $theme_accent;
+                        opacity: 0;
+                        transition: all .4s;
+                    }
+                    &:hover,&.active{
+                        color: $theme_accent;
+                    }
+                    &.active {
+                        &:after{
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            > li{
+                flex-grow: 1;
+            }
+        }
+        .tc-light &{
+            li{
+                a{
+                    &:hover,&.active{
+                        color: $theme_accent !important;
+                    }
+                }
+            }
+        }
+        &-btn{
+            margin: -7px -7px 8px;
+            li{
+                &:not(.tab-nav-sap){
+                    padding:7px;
+                }
+                a{
+                    border-radius: $radius/2;
+                    color: $base_color;
+                    background: rgba($theme_primary,.1);
+                    border-color: transparent;
+                    &:hover,&.active{
+                        color: $theme_accent !important;
+                        background: rgba($theme_accent,.1);
+                    }
+                }
+            }
+            &-s2{
+                li{
+                    a{
+                        &:hover,&.active{
+                            color: #fff !important;
+                            background: $theme_accent;
+                        }
+                    }
+                }
+            }
+            &-bdr{
+                margin: -7px;
+                li{
+                    &:not(.tab-nav-sap){
+                        padding:7px;
+                    }
+                    a{
+                        border-radius: $radius;
+                        color: $base_color;
+                        background: transparent;
+                        border: 2px solid !important;
+                        border-color: $base_dark;
+                        &:hover,&.active{
+                            color: $theme_accent !important;
+                            background: transparent;
+                            border-color: $theme_accent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-pane{
+        padding: 10px 0 0;
+    }
+}

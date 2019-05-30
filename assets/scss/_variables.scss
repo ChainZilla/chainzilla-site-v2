@@ -1,0 +1,161 @@
+// Define Theme Colors
+$theme_accent:          #16a3fe;
+$theme_accent_alt:      #23c99d;
+
+$theme_primary:         #122272;
+$theme_primary_alt:     #2a365a;
+
+$theme_light:           #f6fafd;
+$theme_light_alt:       #eaeff6;
+
+$theme_dark:            #0c195a;
+$theme_dark_alt:        #132582;
+
+// Base Color
+$base_color:            #415076;
+$base_dark:             #12183a;
+$base_light:            #8ca2e5;
+$base_light_alt:        #b9d2f4;
+
+$base_font:             'Work Sans', sans-serif;
+$base_font_alt:         'Quicksand', sans-serif;
+
+$font_awesome:          'Font Awesome 5 Free';
+$themify:               'themify';
+
+$base_font_size:        16px;
+$base_line_height:      1.6;
+$base_font_weight:      300;
+
+$base_fw_lt: 			300;
+$base_fw_rg: 			400;
+$base_fw_md: 			500;
+$base_fw_bold: 			700;
+
+$base_fw_strong: 		$base_fw_md;
+
+$heading_font:          $base_font;
+$heading_font_weight:   $base_fw_md;
+
+// Text Color Default
+$text_color:            $base_color;
+$text_color_alt:        $base_light;
+$text_dark:             $base_dark;
+$text_light:            $base_light;
+$text_primary:          $theme_accent;
+$text_secondary:        $theme_accent_alt;
+$text_light_alt:        $base_light_alt;
+
+$heading_color:         $theme_primary_alt;
+$heading_color_alt:     $theme_accent;
+$heading_dark:          $base_dark;
+$heading_light:         $base_light;
+$heading_color_revert:	#fff;
+
+// Menu/Nav
+$menu_font:             $base_font;
+$menu_font_size:        15px;
+$menu_font_color:       $base_color;
+$menu_hover_color:      $theme_accent;
+$menu_active_color:     $theme_accent;
+
+$menu_sub_font:         $menu_font;
+$menu_sub_font_size:    $menu_font_size - 1;
+$menu_sub_font_color:   $menu_font_color;
+$menu_sub_hover_color:  $menu_hover_color;
+$menu_sub_active_color: $menu_active_color;
+
+$menu_gap_desktop:      13px; // left/right
+$menu_gap_tablet:       10px; // left/right
+$menu_gap_mobile:       20px; // left/right
+
+// Header BG
+$logo_height_rg:        46px;
+$logo_height_md:        50px;
+$logo_height_lg:        60px;
+$logo_height_mob_rg:    30px;
+$logo_height_mob_md:    44px;
+$logo_height_mob_lg:    52px;
+
+// Menu/Nav
+$btn_color:             $base_color;
+$btn_border:            $base_color;
+$btn_bg:                $base_color;
+
+$btn_hover:             $base_color;
+$btn_hover_border:      $base_color;
+$btn_hover_bg:          $base_color;
+
+$btn_font:              $base_font;
+$btn_font_size:         15px;
+
+$btn_gap_desktop:       10px 10px;
+$btn_gap_tablet:        15px 35px;
+$btn_gap_mobile:        10px;
+
+$btn_facebook:          #3b5998;
+$btn_facebook_hover:    darken($btn_facebook,10%);
+$btn_google:            #d85040;
+$btn_google_hover:      darken($btn_google,10%);
+
+// State Color
+$default_color: 		$base_color;
+$alternet_color: 		$base_dark;
+$primary_color: 		$theme_accent;
+$secondary_color: 		$theme_accent_alt;
+$info_color: 			#026bfb;
+$warning_color: 		#f6be26;
+$success_color: 		#39d884;
+$danger_color:	    	#e6604a;
+$dark_color: 			#0b0c10;
+$light_color: 			$theme_light;
+
+
+// Border
+$bdr_default: 	    #d1e0f6;
+$bdr_alternet:	    #a2b3cd;
+$bdr_alternet_2:	#dfeaf8;
+$bdr_primary: 	    $theme_accent;
+$bdr_secondary:	    $theme_primary;
+
+
+$bdr_info:	        #9ac4fd;
+$bdr_warning:	    #fbe5a8;
+$bdr_success:	    #b0efce;
+$bdr_danger:	    #f5bfb7;
+$bdr_light:	        #dbe4f7;
+$bdr_light_alt:	    #c1cef1;
+$bdr_dark:	        #394995;
+$bdr_dark_alt:	    #133c8e;
+
+
+// Border Radius 
+$radius: 6px;
+$radius_sm: 4px;
+$radius_md: 10px;
+$radius_lg: 15px;
+$circle: 50%;
+
+// Shadows
+$shadow: 0px 3px 12px 0px rgba($base_dark, 0.08);
+$shadow_soft: 0px 5px 45px 0px rgba($base_dark, 0.08);
+$shadow_soft_sm: 0px 2px 12px 0px rgba($base_dark, 0.08);
+$shadow_dark: 0 5px 40px rgba($base_dark, 0.15);
+$shadow_dark_sm: 0 3px 12px 0px rgba($base_dark, 0.15);
+$shadow_heavy: 0 5px 50px rgba($base_dark, 0.25);
+$shadow_heavy_sm: 0 3px 12px 0px rgba($base_dark, 0.25);
+
+
+// Background Colors
+$bg_trans:	    		transparent;
+$bg_light:				$light_color;
+$bg_dark:				$dark_color;
+$bg_light_alt:			lighten($theme_light_alt, 2%);
+$bg_dark_alt:			lighten($bg_dark, 6%);
+
+$bg_default:			$base_color;
+$bg_primary:		    $theme_accent;
+$bg_secondary:		    $theme_accent_alt;
+$bg_alternet:		    $theme_primary;
+
+$space : 10px;

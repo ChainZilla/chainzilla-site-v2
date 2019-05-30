@@ -1,0 +1,6 @@
+// Override Classes 
+.mfp-bg,.mfp-wrap,.mfp-wrap[class*="bg-"], .mfp-bg[class*="bg-"] {
+	position: fixed !important;
+    z-index: 99999999 !important;
+    top: 0 !important;
+}

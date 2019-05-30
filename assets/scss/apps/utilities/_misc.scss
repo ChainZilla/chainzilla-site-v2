@@ -1,0 +1,708 @@
+//// Text Case ////
+///////////////////
+.tt{
+    &c{
+        text-transform: capitalize;
+    }
+    &u{
+        text-transform: uppercase;
+    }
+    &l{
+        text-transform: lowercase;
+    }
+    &n{
+        text-transform: none;
+    }
+}
+
+//// Font Weight ////
+/////////////////////
+.fw{
+    &-7{
+        font-weight: 700 !important;
+    }
+    &-6{
+        font-weight: 600 !important;
+    }
+    &-5{
+        font-weight: 500 !important;
+    }
+    &-4{
+        font-weight: 400 !important;
+    }
+    &-3{
+        font-weight: 300 !important;
+    }
+	&-rg {
+		font-weight: $base_fw_rg !important;
+	}
+	&-bold {
+		font-weight: $base_fw_bold !important;
+	}
+	&-md {
+		font-weight: $base_fw_md !important;
+	}
+	&-lt {
+		font-weight: $base_fw_lt !important;
+	}
+}
+
+//// Overflow ////
+//////////////////
+.ov{
+    &-h{
+        overflow: hidden;
+    }
+    &-xh{
+        overflow-x: hidden;
+    }
+    &-yh{
+        overflow-y: hidden;
+    }
+    &-s{
+        overflow: scroll;
+    }
+    &-xs{
+        overflow-x: scroll;
+    }
+    &-ys{
+        overflow-y: scroll;
+    }
+}
+
+//// Border ////
+////////////////
+.bd{
+    border: 1px solid $bdr_default;
+    &-2{
+        border-width: 2px;
+    }
+    &-3{
+        border-width: 3px;
+    }
+    &t{
+        border-top: 1px solid $bdr_default;
+        &-2{
+            border-top-width: 2px;
+        }
+        &-3{
+            border-top-width: 3px;
+        }
+    }
+    &b{
+        border-bottom: 1px solid $bdr_default;
+        &-2{
+            border-bottom-width: 2px;
+        }
+        &-3{
+            border-bottom-width: 3px;
+        }
+    }
+    &l{
+        border-left: 1px solid $bdr_default;
+        &-2{
+            border-left-width: 2px;
+        }
+        &-3{
+            border-left-width: 3px;
+        }
+    }
+    &r{
+        border-right: 1px solid $bdr_default;
+        &-2{
+            border-right-width: 2px;
+        }
+        &-3{
+            border-right-width: 3px;
+        }
+    }
+    &-dashed{
+        border-style:dashed;
+    }
+    &-dotted{
+        border-style:dotted;
+    }
+    &-double{
+        border-style:double;
+    }
+    &-light{
+        border-color: $bdr_light;
+    }
+    &-lighter{
+        border-color: $bdr_light;
+    }
+    &-lightest{
+        border-color: lighten($bdr_light,6%);
+    }
+    &-dark{
+        border-color: $bdr_dark;
+    }
+    &-darker{
+        border-color: $bdr_dark;
+    }
+    &-darkest{
+        border-color: $bdr_dark;
+    }
+    &-primary{
+        border-color: $bdr_primary;
+    }
+    &-alternet{
+        border-color: $bdr_alternet;
+    }
+    &-secondary{
+        border-color: $bdr_secondary;
+    }
+    &-info{
+        border-color: $bdr_info;
+    }
+    &-warning{
+        border-color: $bdr_warning;
+    }
+    &-success{
+        border-color: $bdr_success;
+    }
+    &-danger{
+        border-color: $bdr_danger;
+    }
+}
+
+//// Radius ////
+////////////////
+.round{
+    border-radius: $radius !important;
+    &-sm {
+        border-radius: $radius_sm !important;
+    }
+    &-md {
+        border-radius: $radius_md !important;
+    }
+    &-lg {
+        border-radius: $radius_lg !important;
+    }
+    &-full {
+        border-radius: $circle !important;
+        &:before,&:after{
+            border-radius: $circle !important;
+        }
+    }
+}
+.circle {
+    @extend .round-full;
+}
+@for $bdrs from 1 through 9 {
+    .bdrs-#{$bdrs} {
+        border-radius: $bdrs * 1px;
+    }
+}
+@for $bdrs from 1 through 5 {
+    .bdrs-#{$bdrs}x {
+        border-radius: $bdrs * 10px;
+    }
+}
+@for $bdrs from 1 through 4 {
+    .bdrs-#{$bdrs}5x {
+        border-radius: ($bdrs * 10px) + 5;
+    }
+}
+
+//// Shadow ////
+////////////////
+.shadow{
+    box-shadow: $shadow !important;
+    &-soft{
+        box-shadow: $shadow_soft;
+        &-sm {
+            box-shadow: $shadow_soft_sm;
+        }
+    }
+    &-dark{
+        box-shadow: $shadow_dark;
+        &-sm {
+            box-shadow: $shadow_dark_sm;
+        }
+    }
+    &-heavy{
+        box-shadow: $shadow_heavy;
+        &-sm {
+            box-shadow: $shadow_heavy_sm;
+        }
+    }
+}
+
+//// Shapes and Mask ////
+/////////////////////////
+@each $mask in a, a-md, a-dark, line {
+	.nk-df-mask-#{$mask} {
+		background-image: url(../images/mask-#{$mask}.svg);
+        .ie &{
+            background-image: url(../images/mask-#{$mask}.png);
+        }
+	}
+	.mask-#{$mask} {
+		&:before, &-bg {
+			@extend .nk-df-mask-#{$mask};
+		}
+	}
+}
+.mask {
+	&-a:before,&-a-md:before,&-a-dark:before{
+		background-position: bottom center !important;
+	}
+}
+
+@each $shape in a, a-sm, b, b-sm, c, c-sm, d, d-sm, e, e-sm, f, f-sm, g, g-sm, h, h-sm, i, i-sm {
+	.nk-df-shape-#{$shape} {
+		background-image: url(../images/shape-#{$shape}.png);
+	}
+	.shape-#{$shape} {
+		&:after, &-bg {
+			@extend .nk-df-shape-#{$shape};
+		}
+	}
+}
+
+//// Overlay Element ////
+/////////////////////////
+.has-ovm{
+	@extend .nk-df-rel;
+	> [class*=container], > *:not(.nk-ovm):not(.header-main):not(.nk-header){
+		@extend .nk-df-over-up;
+	}
+}
+.nk-ovm{
+	@extend .nk-df-around;
+	@extend .nk-df-bg;
+	z-index: 1;
+	&:before, &:after {
+		@extend .nk-df-around;
+		@extend .nk-df-bg;
+		@extend .nk-df-content;
+        bottom: -1px;
+        left: -1px;
+	}
+	&:before {
+		z-index: 1
+	}
+    &-repeat{
+        &:after{
+            background-repeat: repeat;
+            background-size: contain;
+        }
+    }
+    &-fixed{
+        z-index: -1;
+        &:after{
+           background-attachment: fixed;
+        }
+    }
+}
+.ovm {
+	&-top{
+		bottom: auto
+    }
+    &-bottom{
+		top: auto
+    }
+	&-left{
+        right: auto
+    }
+    &-right{
+        left: auto
+    }
+    &-h{
+		&-10 {height: 10%}
+		&-20 {height: 20%}
+		&-25 {height: 25%}
+		&-30 {height: 30%}
+		&-35 {height: 35%}
+		&-40 {height: 40%}
+		&-45 {height: 45%}
+		&-50 {height: 50%}
+		&-55 {height: 55%}
+		&-60 {height: 60%}
+		&-65 {height: 65%}
+		&-70 {height: 70%}
+		&-75 {height: 75%}
+		&-80 {height: 80%}
+		&-90 {height: 90%}
+		&-100 {height: 100%}
+    }
+    &-w{
+		&-10 {width: 10%}
+		&-20 {width: 20%}
+		&-25 {width: 25%}
+		&-30 {width: 30%}
+		&-40 {width: 40%}
+		&-50 {width: 50%}
+		&-60 {width: 60%}
+		&-70 {width: 70%}
+		&-75 {width: 75%}
+		&-80 {width: 80%}
+		&-90 {width: 90%}
+		&-100 {width: 100%}
+    }
+}
+
+//// Background ////
+////////////////////
+.has-bg, [class*='bg-'] {
+	@extend .nk-df-rel;
+	@extend .nk-df-bg;
+}
+.has-bg-image {
+	@extend .nk-df-rel;
+	> [class*=container] {
+		@extend .nk-df-over-up;
+	}
+    > div{
+        position: relative;
+        z-index: 1;
+    }
+}
+.bg {
+	&-fixed {
+		background-attachment: fixed;
+	}
+	&-image {
+		@extend .nk-df-around;
+		@extend .nk-df-bg;
+        position: absolute !important;
+		z-index: 0 !important;
+		opacity: 0;
+		transition: opacity .4s;
+        &.bg-image-loaded{
+            opacity: 1;
+        }
+		img {
+			display: none !important;
+		}
+	}
+} 
+@each $bp in 0, 10, 20, 25, 30, 40 {
+	.bg-image.bp-l#{$bp}, .has-bg.bp-l#{$bp} {
+		background-position: $bp% 50%;
+	}
+	.bg-image.bp-r#{$bp}, .has-bg.bp-r#{$bp} {
+		background-position: (100 - $bp)% 50%;
+	}
+}
+.container.container-full{
+	width: 100%;
+	max-width: 1170px;
+	padding-left: 5px;
+}
+@media (max-width:1200px){
+	.container.container-full{
+		width: 100%;
+		max-width: 1140px;
+		padding-left: 20px;
+	}
+}
+@media (max-width:991px){
+	.bg-image-custom-s1{
+		bottom: auto;
+		height: 490px;
+	}
+	.container.container-full{
+		width: 100%;
+		max-width: 920px;
+	}
+}
+@media (max-width:767px){
+	.container.container-full{
+		width: 100%;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.bg-image-custom-s1{
+		height: 380px;
+	}
+}
+@media (max-width:575px){
+	.bg-image.bg-image-custom-s1 {
+		background-position: 50% 100%;
+	}
+}
+@media (max-width:480px){
+	.bg-image-custom-s1{
+		height: 380px;
+	}
+}
+
+///// Overlay ////
+//////////////////
+.overlay{
+    &:after{
+        @extend .nk-df-around;
+        content: '';
+    }
+    &-light{
+        &:after{
+            background: #fff;
+        }
+    }
+    &-dark{
+        &:after{
+            background: #000;
+        }
+    }
+    &-theme{
+        &:after{
+            background: $theme_primary;
+        }
+        &-dark{
+            &:after{
+                background: $theme_dark;
+            }
+        }
+    }
+    &-opacity{
+        &-10{
+            &:after{
+                opacity: 0.1;
+            }
+        }
+        &-15{
+            &:after{
+                opacity: 0.15;
+            }
+        }
+        &-20{
+            &:after{
+                opacity: 0.2;
+            }
+        }
+        &-25{
+            &:after{
+                opacity: 0.25;
+            }
+        }
+        &-30{
+            &:after{
+                opacity: 0.3;
+            }
+        }
+        &-35{
+            &:after{
+                opacity: 0.35;
+            }
+        }
+        &-40{
+            &:after{
+                opacity: 0.4;
+            }
+        }
+        &-45{
+            &:after{
+                opacity: 0.45;
+            }
+        }
+        &-50{
+            &:after{
+                opacity: 0.5;
+            }
+        }
+        &-55{
+            &:after{
+                opacity: 0.55;
+            }
+        }
+        &-60{
+            &:after{
+                opacity: 0.6;
+            }
+        }
+        &-65{
+            &:after{
+                opacity: 0.65;
+            }
+        }
+        &-70{
+            &:after{
+                opacity: 0.7;
+            }
+        }
+        &-75{
+            &:after{
+                opacity: 0.75;
+            }
+        }
+        &-80{
+            &:after{
+                opacity: 0.8;
+            }
+        }
+        &-85{
+            &:after{
+                opacity: 0.85;
+            }
+        }
+        &-90{
+            &:after{
+                opacity: 0.9;
+            }
+        }
+        &-95{
+            &:after{
+                opacity: 0.95;
+            }
+        }
+        &-100{
+            &:after{
+                opacity: 1;
+            }
+        }
+    }
+}
+@for $op from 1 through 10 {
+    .op-#{$op}0 { 
+        opacity:  $op / 10;
+    }
+}
+
+@for $op from 1 through 9 {
+    .op-#{$op}5 { 
+        opacity:  ($op / 10) + 0.05;
+    }
+}
+
+//// Floating ////
+//////////////////
+.alignright, .alignleft, .aligncenter,  .alignnone {
+	display: block;
+	padding: 0;
+	margin: ($space  * 1.5) auto;
+}
+@media (min-width:576px){
+	.alignright, .alignleft, .aligncenter , .alignnone {
+		margin: 0 0 ($space * 1.5);
+		display: inline;
+	}
+	.alignright {
+		margin-left: ($space * 2);
+		float: right;
+	}
+	.alignleft {
+		margin-right: ($space * 2);
+		float: left;
+	}
+	.alignnone {
+		margin-right: $space * 2
+	}
+	.aligncenter {
+		display: block;
+		margin: ($space  * 1.5) auto;
+	}
+}
+
+//// Wide ////
+//////////////
+.wide {
+	max-width:750px;
+	&-auto, &-auto-rg, &-auto-xl, &-auto-lg, &-auto-md, &-auto-sm, &-auto-xs{
+		margin: 0 auto;
+    }
+	&-rg, &-auto, &-auto-rg {
+		@extend .wide;
+	}
+	&-xl, &-auto-xl {
+		max-width:1560px
+	}
+	&-lg, &-auto-lg {
+		max-width:1140px
+	}
+	&-md, &-auto-md {
+		max-width:945px
+	}
+	&-sm, &-auto-sm {
+		max-width:555px
+	}
+	&-xs, &-auto-xs {
+		max-width:360px
+	}
+	&-none, &-auto-none {
+		max-width:inherit
+	}
+}
+
+//// OverUp ////
+////////////////
+.over-up, [class*="over-up-"] {
+    z-index: 9;
+}
+.over-up{
+    margin-top: -125px;
+    &-sm {
+        margin-top: -45px;
+    }
+    &-md {
+        margin-top: -75px;
+    }
+    &-lg {
+        margin-top: -165px;
+    }
+    &-xl {
+        margin-top: -275px;
+    }
+}
+
+@media (min-width:768px){
+    .over-up{
+        margin-top: -190px;
+        &-sm {
+            margin-top: -75px;
+        }
+        &-md {
+            margin-top: -125px;
+        }
+        &-lg {
+            margin-top: -275px;
+        }
+        &-xl {
+            margin-top: -350px;
+        }
+    }
+}
+
+//// SVGs ////
+//////////////
+.nk-svgs {
+    .nk-ovm & {
+        @extend .nk-df-around;
+        z-index: 3;
+    }
+    svg {
+        height: 100%;
+        width: auto;
+    }
+    &.svg-loaded svg {
+        display: none;
+    }
+}
+
+//// HR ////
+////////////
+.hr, hr {
+	border-top: 1px solid $bdr_light;
+	margin-top: 2.5rem;
+	margin-bottom: 2.5rem;
+}
+
+// Height
+.h{
+    &-110{
+        height: 110% !important;
+    }
+    &-115{
+        height: 115% !important;
+    }
+    &-120{
+        height: 120% !important;
+    }
+    &-125{
+        height: 125% !important;
+    }
+    &-130{
+        height: 130% !important;
+    }
+}

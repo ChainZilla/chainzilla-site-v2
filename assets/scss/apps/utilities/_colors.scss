@@ -1,0 +1,208 @@
+//// Text Color ////
+////////////////////
+.tc{
+    &-default{
+        color: $default_color !important;
+        a{
+            @extend .tc-default;
+        }
+    }
+    &-alternet{
+        color: $base_color !important;
+        a{
+            @extend .tc-alternet;
+        }
+    }
+    &-primary{
+        color: $theme_accent !important;
+        a{
+            @extend .tc-primary;
+        }
+    }
+    &-secondary{
+        color: $theme_accent_alt !important;
+        a{
+            @extend .tc-secondary;
+        }
+    }
+    &-info{
+        color: $info_color !important;
+        a{
+            @extend .tc-info;
+        }
+    }
+    &-warning{
+        color: $warning_color !important;
+        a{
+            @extend .tc-warning;
+        }
+    }
+    &-success{
+        color: $success_color !important;
+        a{
+            @extend .tc-success;
+        }
+    }
+    &-danger{
+        color: $danger_color !important;
+        a{
+            @extend .tc-danger;
+        }
+    }
+    &-light{
+        color: $light_color !important;
+        a:not(.btn){
+            @extend .tc-light;
+            &:hover{
+                color: $theme_accent !important;
+            }
+        }
+        p,.list{
+            color: $base_light_alt;
+        }
+    }
+    &-dark{
+        color: $dark_color !important;
+        a{
+            @extend .tc-dark;
+        }
+    }
+    &-theme{
+        color: $theme_accent !important;
+        a{
+            @extend .tc-theme;
+        }
+        &-alt{
+            color: $theme_primary !important;
+            a{
+                @extend .tc-theme-alt;
+            }
+        }
+    }
+	&-white {
+		color: #fff;
+	}
+}
+
+//// Background ////
+////////////////////
+.bg{
+    &-default{
+        background-color: $bg_default !important;
+    }
+    &-alternet{
+        background-color: $bg_alternet !important;
+    }
+    &-primary{
+        background-color: $bg_primary !important;
+    }
+    &-secondary{
+        background-color: $bg_secondary !important;
+    }
+	&-light{
+        background-color: $bg_light !important;
+		&-alt {
+			background-color: $bg_light_alt !important;
+		}
+	}
+    &-dark{
+        background-color: $bg_dark !important;
+		&-alt {
+			background-color: lighten($bg_dark, 5%) !important;
+		}
+    }
+	&-trans {
+		background-color: $bg_trans !important;
+	}
+	&-grad {
+		background-image: linear-gradient(90deg, $theme_accent 0%, $theme_accent_alt 100%);
+	}
+	
+    &-info{
+        background-color: $info_color !important;
+    }
+    &-warning{
+        background-color: $warning_color !important;
+    }
+    &-success{
+        background-color: $success_color !important;
+    }
+    &-danger{
+        background-color: $danger_color !important;
+    }
+    &-black{
+        background-color: #000;
+        &-2{
+            background-color: rgba(#000,0.02);
+        }
+        &-5{
+            background-color: rgba(#000,0.05);
+        }
+        &-7{
+            background-color: rgba(#000,0.07);
+        }
+        &-10{
+            background-color: rgba(#000,0.10);
+        }
+        &-14{
+            background-color: rgba(#000,0.14);
+        }
+        &-22{
+            background-color: rgba(#000,0.22);
+        }
+    }
+    &-white{
+        background-color: #fff;
+        &-2{
+            background-color: rgba(#fff,0.02);
+        }
+        &-5{
+            background-color: rgba(#fff,0.05);
+        }
+        &-7{
+            background-color: rgba(#fff,0.07);
+        }
+        &-10{
+            background-color: rgba(#fff,0.10);
+        }
+        &-14{
+            background-color: rgba(#fff,0.14);
+        }
+        &-22{
+            background-color: rgba(#fff,0.22);
+        }
+    }
+	// Default Theme
+    &-theme{
+        background-color: $theme_primary;
+        &-alt{
+            background-color: $theme_primary_alt;
+        }
+        &-grad{
+            background-image: linear-gradient(90deg, $theme_primary 0%, $theme_primary_alt 100%);
+            &-alt{
+                background-image: linear-gradient(90deg, $theme_primary_alt 0%, $theme_primary 100%);
+            }
+        }
+		&-dark{
+            background-color: $theme_dark;
+			&-alt {
+				background-color: $theme_dark_alt;
+			}
+        }
+        &-light{
+            background-color: $theme_light;
+			&-alt {
+				background-color: $theme_light_alt;
+			}
+        }
+    }
+}
+
+.theme{
+    &-dark{
+        background: $theme_dark;
+    }
+}
+
+

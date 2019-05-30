@@ -1,0 +1,170 @@
+.nk{
+    &-body {
+        min-width: 320px;
+    }
+    &-pages{
+        &-centered{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 0 15px;
+        }
+    }
+}
+@media (min-width:1600px) {
+    .nk-wrap {
+        .body-boxed & {
+            max-width: 1400px;
+        }
+    }
+}
+// Section //
+/////////////
+$sec_base_unit: 30px;
+
+$sec_small:     $sec_base_unit*1;
+$sec_medium:    $sec_base_unit*2;
+$sec_regular:   $sec_base_unit*3;
+$sec_large:     $sec_base_unit*4;
+$sec_exlarge:   $sec_base_unit*5;
+
+
+.section{
+    position: relative;
+    overflow-x: hidden;
+    width: 100%;
+    z-index: 2;
+}
+.section-t{
+    padding-bottom: $sec_regular / 2;
+}
+.section-b{
+    padding-bottom: $sec_regular / 2;
+}
+.section{
+    @extend .section-t;
+    @extend .section-b;
+}
+@each $gap, $size in (s: $sec_large, m: $sec_large, l: $sec_large, x: $sec_exlarge) {
+    .section-t-#{$gap} {
+        padding-top: $size / 2;
+    }
+    .section-b-#{$gap} {
+        padding-bottom: $size / 2;
+    }
+    .section-#{$gap} {
+        @extend .section-t-#{$gap};
+        @extend .section-b-#{$gap};
+    }
+}
+@media (min-width:576px){
+    .section-t{
+        padding-bottom: $sec_regular / 1.75;
+    }
+    .section-b{
+        padding-bottom: $sec_regular / 1.75;
+    }
+    @each $gap, $size in (s: $sec_small, m: $sec_medium, l: $sec_large, x: $sec_exlarge) {
+        .section-t-#{$gap} {
+            padding-top: $size / 1.75;
+        }
+        .section-b-#{$gap} {
+            padding-bottom: $size / 1.75;
+        }
+    }
+}
+@media (min-width:768px){
+    .section-t{
+        padding-bottom: $sec_regular / 1.5;
+    }
+    .section-b{
+        padding-bottom: $sec_regular / 1.5;
+    }
+    @each $gap, $size in (s: $sec_small, m: $sec_medium, l: $sec_large, x: $sec_exlarge) {
+        .section-t-#{$gap} {
+            padding-top: $size / 1.5;
+        }
+        .section-b-#{$gap} {
+            padding-bottom: $size / 1.5;
+        }
+    }
+}
+@media (min-width:992px){
+    .section-t{
+        padding-bottom: $sec_regular;
+    }
+    .section-b{
+        padding-bottom: $sec_regular;
+    }
+    @each $gap, $size in (s: $sec_small, m: $sec_medium, l: $sec_large, x: $sec_exlarge) {
+        .section-t-#{$gap} {
+            padding-top: $size;
+        }
+        .section-b-#{$gap} {
+            padding-bottom: $size;
+        }
+    }
+}
+
+// Split layout //
+//////////////////
+.split{
+    height: 100%;
+    &-left{
+        border-radius: 6px 6px 0 0;
+    }
+    &-right{
+        border-radius: 0 0 6px 6px;
+    }
+}
+@media (min-width:576px){
+    .split{
+        &-sm{
+            &-left{
+                border-radius: 6px 0 0 6px;
+            }
+            &-right{
+                border-radius: 0 6px 6px 0;
+            }
+        }
+    }
+}
+@media (min-width:768px){
+    .split{
+        &-md{
+            &-left{
+                border-radius: 6px 0 0 6px;
+            }
+            &-right{
+                border-radius: 0 6px 6px 0;
+            }
+        }
+    }
+}
+@media (min-width:992px){
+    .split{
+        &-lg{
+            &-left{
+                border-radius: 6px 0 0 6px;
+            }
+            &-right{
+                border-radius: 0 6px 6px 0;
+            }
+            border-radius: 6px;
+        }
+    }
+}
+@media (min-width:1200px){
+    .split{
+        &-xl{
+            &-left{
+                border-radius: 6px 0 0 6px;
+            }
+            &-right{
+                border-radius: 0 6px 6px 0;
+            }
+        }
+    }
+}
+

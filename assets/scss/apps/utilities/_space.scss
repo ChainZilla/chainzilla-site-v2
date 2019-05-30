@@ -1,0 +1,288 @@
+$base_unit: 10px;
+
+$small:     $base_unit*1;
+$medium:    $base_unit*2;
+$regular:   $base_unit*3;
+$large:     $regular*2;
+$exlarge:   $regular+$large;
+
+//// Gaps ////
+//////////////
+.gap {
+    height: $regular;
+}
+@each $gap, $size in (s: $small, m: $medium, l: $large, x: $exlarge) {
+  .gap-#{$gap} {
+    height: $size;
+  }
+}
+@for $gaps from 1 through 10 {
+    .gap-#{$gaps}x { 
+        height:  $gaps * $base_unit;
+    }
+}
+
+
+//// Padding ////
+/////////////////
+// Regular size
+@each $pd, $side in (t: top, b: bottom, l: left, r: right) {
+  .pd#{$pd} {
+    padding-#{$side}: $regular;
+  }
+}
+.pd {
+    @extend .pdt;
+    @extend .pdb;
+    @extend .pdl;
+    @extend .pdr;
+}
+.pdx {
+    @extend .pdl;
+    @extend .pdr;
+}
+.pdy {
+    @extend .pdt;
+    @extend .pdb;
+}
+
+// Different Sizes
+@each $pdt, $size in (s: $small, m: $medium, r: $regular, l: $large, x: $exlarge) {
+    .pdt-#{$pdt} {
+        padding-top: $size !important;
+    }
+    .pd-#{$pdt} {
+        @extend .pdt-#{$pdt};
+    }
+    .pdy-#{$pdt} {
+        @extend .pdt-#{$pdt};
+    }
+}
+@each $pdb, $size in (s: $small, m: $medium, r: $regular, l: $large, x: $exlarge) {
+    .pdb-#{$pdb} {
+        padding-bottom: $size !important;
+    }
+    .pd-#{$pdb} {
+        @extend .pdb-#{$pdb};
+    }
+    .pdy-#{$pdb} {
+        @extend .pdb-#{$pdb};
+    }
+}
+@each $pdl, $size in (s: $small, m: $medium, r: $regular, l: $large, x: $exlarge) {
+    .pdl-#{$pdl} {
+        padding-left: $size !important;
+    }
+    .pd-#{$pdl} {
+        @extend .pdl-#{$pdl};
+    }
+    .pdx-#{$pdl} {
+        @extend .pdl-#{$pdl};
+    }
+}
+@each $pdr, $size in (s: $small, m: $medium, r: $regular, l: $large, x: $exlarge) {
+    .pdr-#{$pdr} {
+        padding-right: $size !important;
+    }
+    .pd-#{$pdr} {
+        @extend .pdr-#{$pdr};
+    }
+    .pdx-#{$pdr} {
+        @extend .pdr-#{$pdr};
+    }
+}
+//@media (min-width:576px) {
+//    $small:     $base_unit*1;
+//    $medium:    $base_unit*2;
+//    $regular:   $base_unit*3;
+//    $large:     $regular*2;
+//    $exlarge:   $regular+$large;
+//    
+//    @each $pd, $side in (t: top, b: bottom, l: left, r: right) {
+//      .pd#{$pd} {
+//        padding-#{$side}: $regular;
+//      }
+//    }
+//}
+
+//// Margins ////
+/////////////////
+@each $mg, $side in (t: top, b: bottom, l: left, r: right) {
+    .mg#{$mg} {
+        margin-#{$side}: $regular;
+    }
+}
+.mg {
+    @extend .mgt;
+    @extend .mgb;
+    @extend .mgl;
+    @extend .mgr;
+}
+.mgx {
+    @extend .mgl;
+    @extend .mgr;
+}
+.mgy {
+    @extend .mgt;
+    @extend .mgb;
+}
+.mg-fix {
+    margin-bottom: -20px;
+    &-lg {
+        margin-bottom: -45px;
+    }
+    &-md {
+        margin-bottom: -30px;
+    }
+    &-sm {
+        margin-bottom: -15px;
+    }
+    &-xs {
+        margin-bottom: -10px;
+    }
+}
+
+// Different Sizes
+@each $mgt, $size in (s: $small, m: $medium, r: $regular, l: $large, x: $exlarge) {
+    .mgt-#{$mgt} {
+        margin-top: $size !important;
+    }
+    .mg-#{$mgt} {
+        @extend .mgt-#{$mgt};
+    }
+    .mgy-#{$mgt} {
+        @extend .mgt-#{$mgt};
+    }
+}
+@each $mgb, $size in (s: $small, m: $medium, r: $regular, l: $large, x: $exlarge) {
+    .mgb-#{$mgb} {
+        margin-bottom: $size !important;
+    }
+    .mg-#{$mgb} {
+        @extend .mgb-#{$mgb};
+    }
+    .mgy-#{$mgb} {
+        @extend .mgb-#{$mgb};
+    }
+}
+@each $mgl, $size in (s: $small, m: $medium, r: $regular, l: $large, x: $exlarge) {
+    .mgl-#{$mgl} {
+        margin-left: $size !important;
+    }
+    .mg-#{$mgl} {
+        @extend .mgl-#{$mgl};
+    }
+    .mgx-#{$mgl} {
+        @extend .mgl-#{$mgl};
+    }
+}
+@each $mgr, $size in (s: $small, m: $medium, r: $regular, l: $large, x: $exlarge) {
+    .mgr-#{$mgr} {
+        margin-right: $size !important;
+    }
+    .mg-#{$mgr} {
+        @extend .mgr-#{$mgr};
+    }
+    .mgx-#{$mgr} {
+        @extend .mgr-#{$mgr};
+    }
+}
+
+//@media (min-width:576px) {
+//    $small:     $base_unit*1;
+//    $medium:    $base_unit*2;
+//    $regular:   $base_unit*3;
+//    $large:     $regular*2;
+//    $exlarge:   $regular+$large;
+//	
+//	@each $mg, $side in (t: top, b: bottom, l: left, r: right) {
+//		.mg#{$mg} {
+//			margin-#{$side}: $regular;
+//		}
+//	}
+//}
+
+.mgb-m10{
+    margin-bottom: -10px;
+}
+.mgb-m20{
+    margin-bottom: -20px;
+}
+.mgb-m30{
+    margin-bottom: -30px;
+}
+.mgb-m40{
+    margin-bottom: -40px;
+}
+.mgb-m50{
+    margin-bottom: -50px;
+}
+
+.mgt-m10{
+    margin-top: -10px;
+}
+.mgt-m20{
+    margin-top: -20px;
+}
+.mgt-m30{
+    margin-top: -30px;
+}
+.mgt-m40{
+    margin-top: -40px;
+}
+.mgt-m50{
+    margin-top: -50px;
+}
+
+.gutter{
+    &-5px{
+        margin-left: -2.5px !important;
+        margin-right: -2.5px !important;
+        > li,> div{
+            padding-left: 2.5px !important;
+            padding-right: 2.5px !important;
+        }
+    }
+}
+@for $i from 1 through 7 {
+    .gutter-#{$i}0px{
+        margin-left: - ($i*10px)/2 !important;
+        margin-right: - ($i*10px)/2 !important;
+        > li, > div{
+            padding-left: ($i*10px)/2 !important;
+            padding-right: ($i*10px)/2 !important;
+        }
+    }
+}
+
+.gutter-vr{
+    &-5px{
+        margin-top: -2.5px !important;
+        margin-bottom: -2.5px !important;
+        > li,> div{
+            padding-top: 2.5px !important;
+            padding-bottom: 2.5px !important;
+        }
+    }
+}
+
+@for $i from 1 through 7 {
+    .gutter-vr-#{$i}0px{
+        margin-top: - ($i*10px)/2 !important;
+        margin-bottom: - ($i*10px)/2 !important;
+        > li, > div{
+            padding-top: ($i*10px)/2 !important;
+            padding-bottom: ($i*10px)/2 !important;
+        }
+    }
+}
+@for $i from 8 through 10 {
+    .gutter-vr-#{$i}0px{
+        margin-top: - ($i*10px)/2 !important;
+        margin-bottom: - ($i*10px)/2 !important;
+        > li, > div{
+            padding-top: ($i*10px)/2 !important;
+            padding-bottom: ($i*10px)/2 !important;
+        }
+    }
+}

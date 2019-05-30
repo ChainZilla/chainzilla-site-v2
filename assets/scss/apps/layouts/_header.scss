@@ -1,0 +1,227 @@
+// Header
+//.nk-header{
+//    position: relative;
+//    z-index: 10;
+//}
+.header {
+    &-main {
+        padding: 10px 0;
+        transition: all .4s;
+		background-image: linear-gradient(to bottom, #2e3b62, #1b2640);
+        .is-transparent &, .has-fixed & {
+            width: 100%;
+            z-index: 49;
+        }
+        .is-transparent & {
+            position: absolute !important;
+        }
+        .has-fixed &{
+            position: fixed !important;
+            box-shadow: 0 0 20px 0 rgba($base_dark, 0.08);
+        }
+        .has-fixed.is-dark &{
+            background-color: darken($theme_dark, 7%);
+        }
+        .has-fixed.is-shrink &{
+            padding: 10px 0;
+        }
+    }
+    &-container{
+        &:not(.container){
+            width: 100%;
+            padding: 0 15px;
+        }
+    }
+    &-wrap{
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    &-logo{
+        margin: 6px 0;
+        flex-shrink: 0;
+    }
+    &-navbar {
+        position: fixed;
+        left: -280px;
+        top: 0;
+        width: 260px;
+        height: 100vh;
+        transition: all 0.4s;
+        &::before, &-overlay{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            content: '';
+            top: 0;
+        }
+        &::before{
+            background: #2d3a60;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all .4s;
+			z-index: -1;
+            .is-dark & {
+                background: lighten($theme_primary_alt,5%);
+            }
+        }
+        &-overlay{
+            background: rgba($bg_dark, 0.7);
+            left: 100%;
+            width: 0;
+            z-index: -1;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .3s;
+            transition-delay: .2s
+        }
+        &.menu-shown{
+            left: 0 !important;
+            .header-navbar-overlay {
+				width: 100vw;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        &-classic{
+            position: absolute;
+            top: 99%;
+            right: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            background: transparent;
+            margin-top: 12px;
+            z-index: auto;
+            flex-grow: 1;
+            transition: all 0.4s;
+            padding: 0 $menu_gap_mobile;
+            .has-fixed & {
+                margin-top: -6px;
+                padding: 0;
+            }
+            &:before{
+                border-radius: $radius_sm;
+                .has-fixed & {
+                    width: 100vw;
+                    border-radius: 0;
+                }
+            }
+        }
+    }
+    &-menu{
+        justify-content: flex-end;
+        padding: 30px 25px;
+        .header-navbar-classic & {
+            padding: 0;
+        }
+    }
+    &-banner{
+        min-height: 72px;
+    }
+}
+
+@media (min-width:375px){
+    .header {
+        &-navbar:not(.header-navbar-classic) {
+            left: -310px;
+            width: 290px;
+        }
+        
+    }
+}
+@media (min-width:576px){
+    .header {
+        &-navbar:not(.header-navbar-classic) {
+            left: -360px;
+            width: 340px;
+        }
+        
+    }
+}
+
+// Logo Alternet
+.logo-dark, .is-transparent:not(.has-fixed) .logo-light, .is-dark .logo-light{
+    display: block;
+}
+.logo-light, .is-transparent:not(.has-fixed) .logo-dark, .is-dark .logo-dark{
+    display: none;
+}
+.logo{
+    img{
+        height: $logo_height_mob_rg;
+        transition: all .4s;
+    }
+    &-md{
+        img{
+            height: $logo_height_mob_md;
+        }
+    }
+    &-lg{
+        img{
+            height: $logo_height_mob_lg;
+        }
+    }
+}
+
+
+@media (min-width:992px){
+    .header {
+        &-navbar:not(.header-navbar-classic){
+            height: auto;
+            width: auto;
+            left: 0;
+        }
+    	&-main {
+        	padding: 10px 0;
+		}
+        &-nav-toggle{
+            display: none;
+        }
+        &-container{
+            &:not(.container){
+                padding: 0 25px;
+            }
+        }
+        &-banner{
+            min-height: 98px;
+        }
+    }
+    .logo{
+        img{
+            height: $logo_height_rg;
+        }
+        &-md{
+            img{
+                height: $logo_height_md;
+            }
+        }
+        &-lg{
+            img{
+                height: $logo_height_lg;
+            }
+        }
+    }
+}
+
+.header {
+    &-menu {
+        max-height: 100vh;
+        overflow: hidden;
+        overflow-y: auto;
+        .header-navbar-classic & {
+            display: none;
+            max-height: 65vh;
+            &.menu-shown {
+                display: block;
+            }
+        }
+    }
+    &-nav-toggle{
+        height: 44px;
+    }
+}
+
