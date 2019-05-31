@@ -63,22 +63,16 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
 
 			### Include Form Fields into Body Message
 			$bodymsg .= isset($cf_email) ? "Email: $cf_email<br><br>" : '';
-			$bodymsg .= $_SERVER['HTTP_REFERER'] ? '<br>---<br><br>This email was sent from [ICO]: ' . $_SERVER['HTTP_REFERER'] : '';
+			$bodymsg .= $_SERVER['HTTP_REFERER'] ? '<br>---<br><br>This email was sent from [ChainZilla]: ' . $_SERVER['HTTP_REFERER'] : '';
 			
-			// Protect Submission from outside
-			if ( preg_match("/wip.themenio.com/", $_SERVER['HTTP_REFERER'])) {
-				$mail->MsgHTML( $bodymsg );
-				$is_emailed = $mail->Send();
-				$msg_error = $mail->ErrorInfo;
-			} else {
-				$is_emailed = false;
-				$msg_error = "<strong>Ohh! You are really stupid.</strong>! Now time to stop and purchase this template.";
-			}
-			
+			// Mailing
+			$mail->MsgHTML( $bodymsg );
+			$is_emailed = $mail->Send();
+
 			if( $is_emailed === true ) {
 				$response = array ('result' => "success", 'message' => $msg_success);
 			} else {
-				$response = array ('result' => "error", 'message' => $msg_error);
+				$response = array ('result' => "error", 'message' => $mail->ErrorInfo);
 			}
 			echo json_encode($response);
 			
