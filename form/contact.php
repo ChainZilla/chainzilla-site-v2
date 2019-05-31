@@ -6,10 +6,10 @@ $mail = new PHPMailer();
 $emailTO = $emailBCC =  $emailCC = array(); $formEmail = '';
 
 ### Enter Your Sitename 
-$sitename = 'Softnio';
+$sitename = 'ChainZilla';
 
 ### Enter your email addresses: @required
-$emailTO[] = array( 'email' => 'hello@chainzilla.io', 'name' => 'Abu' ); 
+$emailTO[] = array( 'email' => 'hello@chainzilla.io', 'name' => 'Chainzilla' ); 
 
 ### Enable bellow parameters & update your BCC email if require.
 //$emailBCC[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
@@ -18,7 +18,7 @@ $emailTO[] = array( 'email' => 'hello@chainzilla.io', 'name' => 'Abu' );
 //$emailCC[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
 
 ### Enter Email Subject
-$subject = "Contact Us on Crypto" . ' - ' . $sitename; 
+$subject = "Contact Us " . ' - ' . $sitename; 
 
 ### If your did not recive email after submit form please enable below line and must change to your correct domain name. eg. noreply@example.com
 //$formEmail = 'noreply@yoursite.com';
@@ -67,7 +67,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
 			$bodymsg .= isset($cf_name) ? "Contact Name: $cf_name<br><br>" : '';
 			$bodymsg .= isset($cf_email) ? "Contact Email: $cf_email<br><br>" : '';
 			$bodymsg .= isset($cf_message) ? "Message: $cf_message<br><br>" : '';
-			$bodymsg .= $_SERVER['HTTP_REFERER'] ? '<br>---<br><br>This email was sent from [ICO]: ' . $_SERVER['HTTP_REFERER'] : '';
+			$bodymsg .= $_SERVER['HTTP_REFERER'] ? '<br>---<br><br>This email was sent from [ChainZilla]: ' . $_SERVER['HTTP_REFERER'] : '';
 			
 			// Mailing
 			$mail->MsgHTML( $bodymsg );
