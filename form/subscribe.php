@@ -6,10 +6,10 @@ $mail = new PHPMailer();
 $emailTO = $emailBCC =  $emailCC = array(); $formEmail = '';
 
 ### Enter Your Sitename 
-$sitename = 'Softnio';
+$sitename = 'ChainZilla';
 
 ### Enter your email addresses: @required
-$emailTO[] = array( 'email' => 'hello@chainzilla.io', 'name' => 'Abu' ); 
+$emailTO[] = array( 'email' => 'hello@chainzilla.io', 'name' => 'Chainzilla' ); 
 
 ### Enable bellow parameters & update your BCC email if require.
 //$emailBCC[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
@@ -18,7 +18,7 @@ $emailTO[] = array( 'email' => 'hello@chainzilla.io', 'name' => 'Abu' );
 //$emailCC[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
 
 ### Enter Email Subject
-$subject = "Subscribe on ICO Crypto" . ' - ' . $sitename; 
+$subject = "Subscribe on site" . ' - ' . $sitename; 
 
 ### If your did not recive email after submit form please enable below line and must change to your correct domain name. eg. noreply@example.com
 //$formEmail = 'noreply@yoursite.com';
