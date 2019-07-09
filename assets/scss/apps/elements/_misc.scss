@@ -176,8 +176,8 @@
         left: 0;
         height:51%;
 		width: 100%;
-        transition:all .6s ease;
-		background:#fff;
+        transition:all .6s ease .3s;
+		background: #2e3b62;
         content: '';
     }
     &:before{
@@ -192,20 +192,11 @@
 			transform: translate(0,100%);
 		}
     }
-    &.no-default{
-        background-color: $theme_primary;
+    &.no-split{
         &:before,&:after{
             .page-loaded &{
                 transform: translate(0,0);
             }
-        }
-        &:before,&:after{
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            transition: all .6s;
-            background-color: $theme_primary;
         }
     }
 }
@@ -248,6 +239,54 @@
             animation: spin 1.5s linear infinite;
         }
     }
+    &-alt{
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        margin: -75px 0 0 -75px;
+        &:before,&:after{
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        &:before{
+            border: 1px solid rgba(#fff,.1);
+        }
+        &:after{
+            border: 1px solid;
+            border-top-color: #fff;
+            border-right-color: transparent;
+            border-left-width: 0;
+            border-bottom-width: 0;
+            animation: spin 1.5s linear infinite;
+        }
+        &.load-done{
+            transition: all .4s;
+            transform: scale(3);
+            opacity: 0;
+            border-color:transparent;
+            &:before,&:after{
+                opacity: 0;
+            }
+        }
+        &.spinner-light{
+            border: 1px solid rgba($base_dark,.1);
+            &::after{
+                border-top-color: $base_dark;
+            }
+        }
+    }
+    &-brand{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 65px;
+    }
 }
 
 // Spin KeyFrame
@@ -263,6 +302,7 @@
         transform: rotate(360deg)
     }
 }
+
 
 // Text Zoom
 

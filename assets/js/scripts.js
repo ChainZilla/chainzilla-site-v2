@@ -97,18 +97,18 @@ NioApp = function (NioApp, $, window, document) {
 	};
     NioApp.components.docReady.push(NioApp.Util.classInit);
 	
-    // PreLoader !Util @v1.0
+     // PreLoader !Util @v1.0
     NioApp.Util.preLoader = function () {
 		var $preloader 	= $('.preloader'),
 			$spinner 	= $('.spinner');
 		
 		if ($preloader.exists()) {
             $body.addClass("page-loaded");
-            $spinner.fadeOut(300);
+            $spinner.addClass('load-done');
             $preloader.delay(600).fadeOut(300);
         }
 	};
-	NioApp.components.winLoad.push(NioApp.Util.preLoader);
+    NioApp.components.winLoad.push(NioApp.Util.preLoader);
 	
 	// BackTop !Util @v1.0
 	NioApp.Util.backTop = function () {
@@ -582,9 +582,9 @@ NioApp = function (NioApp, $, window, document) {
                 var c_mgn = ($self.data('margin')) ? $self.data('margin') : 30;
                 
                 if(cim <= 1){ cim = cim_l = cim_t_l = cim_t_p = cim_m = 1;}
-                
+                 
                 $self.addClass('owl-carousel').owlCarousel({
-                    navText: ["<em class='ti ti-angle-left'></em>","<em class='ti ti-angle-right'></em>"],
+                    navText: ["<em class='fas fa-angle-left'></em>","<em class='fas fa-angle-right'></em>"],
                     items: cim, 
                     loop: c_loop, 
                     nav: c_navs, 
