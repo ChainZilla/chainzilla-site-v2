@@ -3960,6 +3960,15 @@ button.owl-prev {
 @media (min-width: 768px) {
   .header-list li:before {
     content: "\f105"; } }
+.acc-content-inner {
+  margin-top: 25px;
+  padding-left: 15px; }
+  .acc-content-inner h6 {
+    font-size: 13px;
+    font-weight: 400;
+    color: #121329;
+    letter-spacing: .7px; }
+
 /** 05. Layouts */
 /** 05.01 Header */
 .header-main {
@@ -4608,5 +4617,3 @@ button.owl-prev {
     .nk-preview-content > .tab-pane {
       box-shadow: 0 5px 35px -5px rgba(18, 24, 58, 0.12); } }
 /* END @iO */
-
-/*# sourceMappingURL=style.css.map */
